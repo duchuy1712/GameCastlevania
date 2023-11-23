@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Sword
+  - PlayerTag
+  - PowerUp
+  - Bullet
+  - MainUpgrade
+  - Mana
+  - Sup1
+  - Sup2
+  - subWeapon
+  - Candle
+  - Item
+  - SmallMana
+  - SmallHeath
+  - BigHeath
+  - SupWeapon
+  - ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Player
+  - Weapon
+  - Enemy
+  - item
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 86794105
+    locked: 0
+  - name: Item
+    uniqueID: 1442711465
+    locked: 0
+  - name: Enemy
+    uniqueID: 1980249559
+    locked: 0
+  - name: Weapon
+    uniqueID: 2468807645
+    locked: 0
+  - name: Player
+    uniqueID: 2473580773
+    locked: 0
+  - name: PlayerGhostMode
+    uniqueID: 3056940023
+    locked: 0
