@@ -63,19 +63,16 @@ public class AudioManager : Singleton<AudioManager>
     }
     private void OnLevelWasLoaded(int level)
     {
-        switch (SceneManager.GetActiveScene().buildIndex)
+        switch (SceneManager.GetActiveScene().name)
         {
-            case 0:
+            case "MenuScreen":
                 PlayMusic("MenuScreen");
                 break;
-            case 1:
+            case "lv1":
                 PlayMusic("Lv1");
                 break;
-            case 2:
-                PlayMusic("Lv2");
-                break;
-            case 3:
-                PlayMusic("Lv3");
+            case "GameComplete":
+                PlayGlobalSFX("GameComplete");
                 break;
             default:
                 PlayMusic("MenuScreen");
