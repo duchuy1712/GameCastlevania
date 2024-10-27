@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalData : MonoBehaviour
 {
-    public int Level
+    public int CurrentLevel
     {
-        get => PlayerPrefs.GetInt(GlobalDataKey.Level, 1);
-        set => PlayerPrefs.SetInt(GlobalDataKey.Level, value);
+        get => PlayerPrefs.GetInt(GlobalDataKey.CurrentLevel, SceneManager.GetSceneByName("Level1").buildIndex);
+        set => PlayerPrefs.SetInt(GlobalDataKey.CurrentLevel, value);
     }
     public bool Music
     {
@@ -22,7 +23,7 @@ public class GlobalData : MonoBehaviour
 }
 public struct GlobalDataKey
 {
-    public const string Level = "Level";
+    public const string CurrentLevel = "CurrentLevel";
     public const string Music = "Music";
     public const string Sfx = "Sfx";
 }

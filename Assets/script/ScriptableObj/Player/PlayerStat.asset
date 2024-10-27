@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05b7c30b09f0854ebdfa6fd352f5989, type: 3}
   m_Name: PlayerStat
   m_EditorClassIdentifier: 
-  StartUpMana: 5
+  StartUpMana: 15
   maxHp: 10
   maxMana: 99
   maxWeaponLv: 2
+  maxLive: 9
   Live: 3

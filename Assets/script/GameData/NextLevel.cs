@@ -5,28 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public int nextLevelIndex;
+    [SerializeField] SpriteRenderer sprite;
+    private int NextLevelIndex => SceneManager.GetActiveScene().buildIndex + 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Save();
-            DataGame.Instance.globaldata.Level = nextLevelIndex;
-            GameCompelete();
+            if (SceneManager.GetActiveScene().buildIndex.Equals(SceneManager.sceneCountInBuildSettings - 1))
+            {
+                StartCoroutine(GameComplete(1));
+            }
+            else
+                StartCoroutine(GameComplete(NextLevelIndex));
+            sprite.enabled = false;
         }
     }
-    private void Save()
-    {
-        DataGame.Instance.userdata.Live = PlayerManager.Instance.Stat.live;
-        DataGame.Instance.userdata.mainWeaponLv = PlayerManager.Instance.AttackControl.CurrentMainWeapon;
-        DataGame.Instance.userdata.subWeapon = PlayerManager.Instance.AttackControl.CurrentSubWeapon;
-        DataGame.Instance.userdata.score = PlayerManager.Instance.Stat.score;
-    }
-    private void GameCompelete()
+    IEnumerator GameComplete(int _NextLevel)
     {
         AudioManager.Instance.PlayMusic(null);
         AudioManager.Instance.PlayGlobalSFX("Victory");
         Time.timeScale = 0;
-        UIGame.Instance.GameOver.SetActive(true);
+        yield return new WaitWhile(() => AudioManager.Instance.GlobalSfxSource.isPlaying);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(_NextLevel);
     }
 }

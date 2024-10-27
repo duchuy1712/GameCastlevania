@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] private Image UI;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button quitButton;
-    private void OnEnable()
+    /*private void OnEnable()
     {
         continueButton.onClick.AddListener(Continue);
         quitButton.onClick.AddListener(Quit);
@@ -41,5 +41,5 @@ public class GameOver : MonoBehaviour
         UIGame.Instance.GameOver.SetActive(false);
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
-    }
+    }*/
 }

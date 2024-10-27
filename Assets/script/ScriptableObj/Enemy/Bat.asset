@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   hp: 1
-  point: 110
+  point: 100
   damge: 1
   StunTime: 0.5

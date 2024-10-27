@@ -4,34 +4,13 @@ using UnityEngine;
 
 public class Subweapon : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] WeaponData weaponData;
     public Rigidbody2D rb2d;
     private Vector2 direction;
     public Vector2 basedirec;
-    private void OnEnable()
+    public void FixedUpdate()
     {
-        direction = basedirec;
-        rb2d.gravityScale = 0;
-        if (PlayerManager.Instance.transform.eulerAngles.Equals(Vector3.zero))
-        {
-            direction = new Vector2(direction.x, direction.y);
-        }
-        else if (PlayerManager.Instance.transform.eulerAngles.Equals(Vector3.up * 180))
-        {
-            direction = new Vector2(-direction.x, direction.y);
-        }
-    }
-    private void Update()
-    {
-        transform.position += new Vector3(direction.x, direction.y, 0) * speed * Time.deltaTime;
-        if (direction.x > 0)
-        {
-            transform.eulerAngles = Vector3.zero;
-        }
-        else if (direction.x < 0)
-        {
-            transform.eulerAngles = Vector3.up * 180;
-        }
+        rb2d.velocity = new Vector2(direction.x, direction.y) * weaponData.data.speed*Time.deltaTime;
     }
     private void OnBecameInvisible()
     {
@@ -43,5 +22,13 @@ public class Subweapon : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    public void SetDirection(Vector2 _direction)
+    {
+        direction = basedirec;
+        rb2d.gravityScale = 0;
+        transform.eulerAngles = _direction;
+        if(transform.eulerAngles.y > 0)
+            direction = new Vector2(-direction.x, direction.y);
     }
 }

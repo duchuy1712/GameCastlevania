@@ -15,11 +15,6 @@ public class UserData : MonoBehaviour
         get => PlayerPrefs.GetInt(UserDataKey.mana,BaseStat.StartUpMana);
         set => PlayerPrefs.SetInt(UserDataKey.mana,value);
     }
-    public int mainWeaponLv
-    {
-        get => PlayerPrefs.GetInt(UserDataKey.mainWeapon,0);
-        set => PlayerPrefs.SetInt(UserDataKey.mainWeapon, value);
-    }
     public int subWeapon
     {
         get => PlayerPrefs.GetInt(UserDataKey.subWeapon, 0);
@@ -30,18 +25,11 @@ public class UserData : MonoBehaviour
         get => PlayerPrefs.GetInt(UserDataKey.score, 0);
         set => PlayerPrefs.SetInt(UserDataKey.score, value);
     }
-    public int highscore
-    {
-        get => PlayerPrefs.GetInt(UserDataKey.highScore, 0);
-        set => PlayerPrefs.SetInt(UserDataKey.highScore, value);
-    }
 }
 public struct UserDataKey
 {
     public const string Live = "Live";
     public const string mana = "mana";
     public const string subWeapon = "subWeapon";
-    public const string mainWeapon = "mainWeapon";
     public const string score = "score";
-    public const string highScore = "highScore";
 }

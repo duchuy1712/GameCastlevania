@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 809119531804464921}
   - component: {fileID: 4078710657450256258}
   - component: {fileID: 809119531804464917}
-  - component: {fileID: 809119531804464923}
+  - component: {fileID: -4175550074753619112}
+  - component: {fileID: 4210701393824572}
+  - component: {fileID: 3833733564819006626}
   m_Layer: 8
   m_Name: MagicKnife
-  m_TagString: subWeapon
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,14 +76,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1826159651
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -175081435, guid: 52f8b8183bb5beb4d878cac8a653536c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de071767a4ef204c9f846d03a3cd04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
+  weaponData: {fileID: -4175550074753619112}
   rb2d: {fileID: 809119531804464917}
   basedirec: {x: 1, y: 1}
 --- !u!50 &809119531804464917
@@ -123,8 +125,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &809119531804464923
-BoxCollider2D:
+--- !u!114 &-4175550074753619112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809119531804464920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06df28a6782822340b94f40da9f95af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: b9450ddd201730f4f8463964d0820fa4, type: 2}
+--- !u!60 &4210701393824572
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809119531804464920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.5}
+      - {x: -0.375, y: 0.375}
+      - {x: -0.5, y: 0.125}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.125, y: -0.5}
+      - {x: 0.4375, y: -0.3125}
+      - {x: 0.5, y: -0.125}
+      - {x: 0.5, y: 0.5}
+--- !u!66 &3833733564819006626
+CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,15 +185,37 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_GeometryType: 1
+  m_GenerationType: 0
   m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 4210701393824572}
+    m_ColliderPaths:
+    - - X: 0
+        Y: 5000000
+      - X: -3750000
+        Y: 3750000
+      - X: -5000000
+        Y: 1250000
+      - X: -5000000
+        Y: -5000000
+      - X: 1250000
+        Y: -5000000
+      - X: 4375000
+        Y: -3125000
+      - X: 5000000
+        Y: -1250000
+      - X: 5000000
+        Y: 5000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.1249931, y: -0.5}
+      - {x: 0.4375029, y: -0.3124911}
+      - {x: 0.5, y: -0.1249958}
+      - {x: 0.4999707, y: 0.5}
+      - {x: -0.0000038, y: 0.49999872}
+      - {x: -0.375005, y: 0.3749903}
+      - {x: -0.5, y: 0.1249941}
+      - {x: -0.4999707, y: -0.5}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005

@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class EnemyStat : MonoBehaviour
 {
-    [SerializeField] private EnemySO Stat;
+    public EnemySO Stat;
+    [SerializeField] Collider2D AttackBox;
+    [SerializeField] bool Invicible;
     private int hp;
-    private int damage;
-    private int point;
     private float StunCountdown;
-    public bool IsStunning { get; private set; }
-
-    private void Awake()
+    private bool IsStunning;
+    private void OnEnable()
     {
         hp = Stat.hp;
-        damage = Stat.damge;
-        point = Stat.point;
+        if(AttackBox != null)
+            AttackBox.enabled = false;
     }
     private void Update()
     {
@@ -33,38 +32,21 @@ public class EnemyStat : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("mainWeapon"))
+        if(!Invicible && collision.gameObject.CompareTag("PlayerWeapon") && !IsStunning)
         {
-            hurt(PlayerManager.Instance.AttackControl.mainDamge);
-        } 
-        else if(collision.gameObject.CompareTag("subWeapon"))
-        {
-            hurt(PlayerManager.Instance.AttackControl.subDamage);
-        }
-        if((collision.gameObject.CompareTag("mainWeapon") || collision.gameObject.CompareTag("subWeapon")) && IsStunning.Equals(false))
-        {
+            hurt(collision.gameObject.GetComponent<WeaponData>().data.damage);
             StunCountdown = Stat.StunTime;
             IsStunning = true;
+            if (hp <= 0)
+            {
+                GameUI.Instance.GetPoint(Stat.point);
+                transform.parent.gameObject.SetActive(false);
+            }
         }
     }
     private void hurt(int _amount)
     {
         hp -= _amount;
         AudioManager.Instance.PlayGlobalSFX("Hit");
-        if (hp <= 0)
-        {
-            GameObject obj = ObjectPooling.Instance.GetObjectFromPool("Hit");
-            obj.transform.position = this.gameObject.transform.position;
-            obj.SetActive(true);
-            gameObject.SetActive(false);
-            PlayerManager.Instance.Stat.GetPoint(point);
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerManager.Instance.Stat.hurt(damage);
-        }
     }
 }

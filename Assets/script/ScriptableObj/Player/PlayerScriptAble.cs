@@ -9,5 +9,6 @@ public class PlayerScriptAble : ScriptableObject
     public int maxHp;
     public int maxMana;
     public int maxWeaponLv;
+    public int maxLive;
     public int Live;
 }

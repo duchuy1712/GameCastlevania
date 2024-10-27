@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded2b450a7b4cf34bbcd9ed796885e92, type: 3}
   m_Name: MagicKnife
   m_EditorClassIdentifier: 
-  damage: 3
-  ManaCost: 2
+  speed: 500
+  damage: 1
+  ManaCost: 1

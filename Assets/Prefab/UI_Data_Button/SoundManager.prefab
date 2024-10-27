@@ -178,6 +178,10 @@ MonoBehaviour:
   musicBg:
   - AudioName: MenuScreen
     clip: {fileID: 8300000, guid: 1b48e648383e3ea42ba646ea7ca9257f, type: 3}
+  - AudioName: GameComplete
+    clip: {fileID: 0}
+  - AudioName: GameOver
+    clip: {fileID: 0}
   - AudioName: Lv1
     clip: {fileID: 8300000, guid: 7954bd768b010164c961f0bca26861ff, type: 3}
   GlobalSfxSound:

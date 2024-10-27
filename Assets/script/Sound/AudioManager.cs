@@ -8,7 +8,7 @@ public class AudioManager : Singleton<AudioManager>
 {
     private void Awake()
     {
-        OnLevelWasLoaded(SceneManager.GetActiveScene().buildIndex);
+        LoadMusic();
         musicSource.mute = !DataGame.Instance.globaldata.Music;
         GlobalSfxSource.mute = !DataGame.Instance.globaldata.Sfx;
         UserSfxSource.mute = !DataGame.Instance.globaldata.Sfx;
@@ -61,22 +61,8 @@ public class AudioManager : Singleton<AudioManager>
                 UserSfxSource.PlayOneShot(s.clip);
         }
     }
-    private void OnLevelWasLoaded(int level)
+    public void LoadMusic()
     {
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "MenuScreen":
-                PlayMusic("MenuScreen");
-                break;
-            case "lv1":
-                PlayMusic("Lv1");
-                break;
-            case "GameComplete":
-                PlayGlobalSFX("GameComplete");
-                break;
-            default:
-                PlayMusic("MenuScreen");
-                break;
-        }
-    } 
+        PlayMusic(musicBg[SceneManager.GetActiveScene().buildIndex].AudioName);
+    }
 }

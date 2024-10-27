@@ -7,7 +7,7 @@ public class GameComplete : MonoBehaviour
 {
     [SerializeField] private Button Quit;
     [SerializeField] private Text Score;
-    private void OnEnable()
+    /*private void OnEnable()
     {
         Quit.onClick.AddListener(Exit);
         if (DataGame.Instance.userdata.score > DataGame.Instance.userdata.highscore)
@@ -22,5 +22,5 @@ public class GameComplete : MonoBehaviour
     {
         DataGame.Instance.resetLevel();
         SceneManager.LoadScene(0);
-    }
+    }*/
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pooling : MonoBehaviour
 {
+    public bool SetCloneObjAsChild;
     public GameObject ObjPrefab;
     public List<GameObject> objs;
     public GameObject GetObject()
@@ -19,6 +20,10 @@ public class Pooling : MonoBehaviour
     public GameObject SetObject()
     {
         GameObject tmp = Instantiate(ObjPrefab);
+        if (SetCloneObjAsChild)
+        {
+            tmp.transform.SetParent(this.transform);
+        }
         tmp.SetActive(false);
         objs.Add(tmp);
         return tmp;

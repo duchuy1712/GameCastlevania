@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DeathBox : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            PlayerManager.Instance.Stat.hurt(11);
+            collision.gameObject.SetActive(false);
         }
     }
 }

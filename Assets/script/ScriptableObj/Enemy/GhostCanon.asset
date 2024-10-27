@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2faeb3d1722a24b9508e9d6853ab56, type: 3}
   m_Name: GhostCanon
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 3
   point: 500
   damge: 2
   StunTime: 0.5

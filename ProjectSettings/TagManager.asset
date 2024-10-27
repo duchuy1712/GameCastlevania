@@ -5,22 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Sword
-  - PlayerTag
-  - PowerUp
-  - Bullet
-  - MainUpgrade
-  - Mana
-  - Sup1
-  - Sup2
-  - subWeapon
   - Candle
-  - Item
-  - SmallMana
-  - SmallHeath
-  - BigHeath
-  - SupWeapon
   - ground
+  - PlayerWeapon
+  - DeathBox
+  - Undefined
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -33,7 +23,7 @@ TagManager:
   - Weapon
   - Enemy
   - item
-  - 
+  - Collider
   - 
   - 
   - 
@@ -58,6 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 711641797
+    locked: 0
   - name: Ground
     uniqueID: 86794105
     locked: 0
@@ -75,4 +68,7 @@ TagManager:
     locked: 0
   - name: PlayerGhostMode
     uniqueID: 3056940023
+    locked: 0
+  - name: UI
+    uniqueID: 3864599213
     locked: 0

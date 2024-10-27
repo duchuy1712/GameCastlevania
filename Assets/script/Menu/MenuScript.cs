@@ -10,19 +10,6 @@ public class MenuScript : MonoBehaviour
     public Button continueButton;
     public Button exitButton;
     private int Level;
-
-    private void Awake()
-    {
-        Level = DataGame.Instance.globaldata.Level;
-        if(Level == 0 || Level == 1 )
-        {
-            continueButton.interactable = false;
-        }
-        else
-        {
-            continueButton.interactable = true;
-        }
-    }
     private void Start()
     {
         startButton.onClick.AddListener(NewGame);
@@ -48,6 +35,6 @@ public class MenuScript : MonoBehaviour
     private void resetLevel()
     {
         DataGame.Instance.resetLevel();
-        Level = DataGame.Instance.globaldata.Level;
+        Level = DataGame.Instance.globaldata.CurrentLevel;
     }    
 }
